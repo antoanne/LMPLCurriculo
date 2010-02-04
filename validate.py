@@ -7,8 +7,7 @@ from xml.parsers.xmlproc import xmldtd
 try:
     file = sys.argv[1]
 except:
-    print '''USE: validate.py <arquivo>
-    python validate.py 10801-5378246377632366.xml'''
+    print '\n\n\t USE: %s <arquivo-cv-lattes> \n\n' %sys.argv[0]
     sys.exit(1)
 
 dtd  = 'LMPLCurriculo.DTD'
