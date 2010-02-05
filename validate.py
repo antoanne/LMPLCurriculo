@@ -1,7 +1,5 @@
 import sys
-from xml.parsers.xmlproc import xmlproc
-from xml.parsers.xmlproc import xmlval
-from xml.parsers.xmlproc import xmldtd
+from lxml import etree
 
 # XML file and corresponding DTD definition
 try:
@@ -10,8 +8,9 @@ except:
     print '\n\n\t USE: %s <arquivo-cv-lattes> \n\n' %sys.argv[0]
     sys.exit(1)
 
-dtd  = 'LMPLCurriculo.DTD'
+dtdFile = open('LMPLCurriculo.DTD', 'r')
+dtd = etree.DTD(dtdFile)
 
-d = xmldtd.load_dtd(dtd)
-p = xmlval.XMLValidator()
-p.parse_resource(file)
+root = etree.XML(open(file,'r').read())
+print(dtd.validate(root))
+print(dtd.error_log.filter_from_errors())
