@@ -1,0 +1,27 @@
+
+
+Sobre
+=====
+
+Versão revisada do DTD divulgado pelo CNPQ para validacao do XML
+Lattes [1]. A versão original do DTD encontra-se no site [2].
+
+[1] http://lattes.cnpq.br/
+[2] http://lmpl.cnpq.br/lmpl/
+
+Nota-se que trata-se de um trabalho em andamento.
+
+
+Instruções
+==========
+
+Em sistemas POSIX, o comando 
+
+xmllint --valid --dtdvalid LMPLCurriculo.DTD --noout <ARQUIVO-LATTES-XML> 
+
+pode ser usado para validar um XML Lattes usando este DTD.
+
+
+
+
+
