@@ -17,7 +17,7 @@ Instruções
 
 Em sistemas POSIX, o comando 
 
-xmllint --valid --dtdvalid LMPLCurriculo.DTD --noout <ARQUIVO-LATTES-XML> 
+xmllint --dtdvalid LMPLCurriculo.DTD --noout <ARQUIVO-LATTES-XML> 
 
 pode ser usado para validar um XML Lattes usando este DTD.
 
