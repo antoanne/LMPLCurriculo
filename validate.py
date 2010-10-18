@@ -1,16 +1,12 @@
 import sys
+from StringIO import StringIO
 from lxml import etree
 
-# XML file and corresponding DTD definition
 try:
-    file = sys.argv[1]
+    dtd = etree.DTD(sys.argv[1])
+    root = etree.parse(sys.argv[2])
+    if dtd.validate(root) == False:
+        print dtd.error_log.filter_from_errors()
 except:
-    print '\n\n\t USE: %s <arquivo-cv-lattes> \n\n' %sys.argv[0]
+    print 'USE:\n\t validate.py <arquivo> \n'
     sys.exit(1)
-
-dtdFile = open('LMPLCurriculo.DTD', 'r')
-dtd = etree.DTD(dtdFile)
-
-root = etree.XML(open(file,'r').read())
-print(dtd.validate(root))
-print(dtd.error_log.filter_from_errors())
